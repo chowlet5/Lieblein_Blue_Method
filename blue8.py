@@ -3,20 +3,20 @@ from bluecoeff import bluecoeff
 
 def blue8(peaks,MRI,max_min):
 
-    [a,b] = bluecoeff(len(peaks))
+    [acoeff,bcoeff] = bluecoeff(len(peaks))
 
     speed = []
 
     if max_min == 'max':
-        x_max = peaks.sort()
+        peaks.sort()
     else:
-        x_max = peaks.sort(reverse=True) 
+        peaks.sort(reverse=True) 
 
     u = 0
     b = 0
     for j in range(len(peaks)):
-        u +=a[j]*x_max[j]
-        b +=b[j]*x_max[j]
+        u +=acoeff[j]*peaks[j]
+        b +=bcoeff[j]*peaks[j]
 
     mu = u
     sigma = b
